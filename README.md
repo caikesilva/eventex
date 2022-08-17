@@ -10,7 +10,7 @@
 6. Execute os testes.
 
 ```console
-    git@github.com:caikesilva/eventex.git wttd
+    git clone git@github.com:caikesilva/eventex.git wttd
     cd wttd
     python -m venv .wttd
     source .wttd/bin/activate
