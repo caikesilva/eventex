@@ -1,10 +1,12 @@
 from django.db import models
+from eventex.subscriptions.validators import validate_cpf
+
 
 class Subscription(models.Model):
     name = models.CharField(max_length=155, verbose_name='Nome')
-    cpf = models.CharField(max_length=14, verbose_name='CPF')
-    email = models.EmailField(verbose_name='E-mail')
-    phone = models.CharField(max_length=20, verbose_name='Telefone')
+    cpf = models.CharField(max_length=14, verbose_name='CPF', validators=[validate_cpf])
+    email = models.EmailField(verbose_name='E-mail', blank=True)
+    phone = models.CharField(max_length=20, verbose_name='Telefone', blank=True)
     created_at = models.DateTimeField(auto_now=True, verbose_name='Criado em')
     paid = models.BooleanField(default=False, verbose_name='Pago')
     
